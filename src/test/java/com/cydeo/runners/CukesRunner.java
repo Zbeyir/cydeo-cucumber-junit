@@ -9,20 +9,19 @@ import org.junit.runner.RunWith;
         plugin = "html:target/cucumber-report.html",
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = false
-       // dryRun = true,
-        //tags = "@Regression"
-       // tags = " @librarian"
-       //tags = "@librarian or  @student"
-       // tags = "@employee"
-       // tags = "@employee and @admin"
-       // tags = "@Regression and not @student"
-
+        dryRun = false,
+        // dryRun = true,
+        tags = "@Regression"
+        // tags = " @librarian"
+        //tags = "@librarian or  @student"
+        // tags = "@employee"
+        // tags = "@employee and @admin"
+        // tags = "@Regression and not @student"
+        //tags = "@wip"
 
 
 )
 public class CukesRunner {
-
 
 
 }
