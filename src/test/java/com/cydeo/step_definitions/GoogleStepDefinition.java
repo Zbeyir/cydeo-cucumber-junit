@@ -1,16 +1,44 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.GoogleSearchPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class GoogleStepDefinition {
+
+    GoogleSearchPage googleSearchPage = new GoogleSearchPage();
+
+    @When("user types apple and clicks enter")
+    public void user_types_apple_and_clicks_enter() {
+        googleSearchPage.searchBox.sendKeys("apple" + Keys.ENTER);
+    }
+    @Then("user sees apple in the google title")
+    public void user_sees_apple_in_the_google_title() {
+
+        String expectedTitle = "apple - Google'da Ara";
+        String actualTitle = Driver.getDriver().getTitle();
+
+        //Junit assertion accepts first arg as expected, second arg as actual
+        Assert.assertEquals("Title is not as expected!", expectedTitle, actualTitle);
+
+
+    }
+
+
 
     @When("user is on Google search page")
     public void user_is_on_google_search_page() {
 
         Driver.getDriver().get("https://www.google.com");
+       // BrowserUtils.sleep(2);
+        WebElement acceptCookiesButton = Driver.getDriver().findElement(By.xpath("(//div[@class='QS5gu sy4vM'])[2]"));
+        acceptCookiesButton.click();
 
     }
     @Then("user should see title is Google")
@@ -21,11 +49,8 @@ public class GoogleStepDefinition {
 
         Assert.assertEquals(expectedTitle, actualTitle);
 
-
-        Driver.closeDriver();
-
-
-
     }
+
+
 
 }

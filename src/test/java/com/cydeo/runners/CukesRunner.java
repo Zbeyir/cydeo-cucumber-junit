@@ -11,13 +11,13 @@ import org.junit.runner.RunWith;
         glue = "com/cydeo/step_definitions",
         dryRun = false,
         // dryRun = true,
-        tags = "@Regression"
+        //tags = "@Regression"
         // tags = " @librarian"
         //tags = "@librarian or  @student"
         // tags = "@employee"
         // tags = "@employee and @admin"
         // tags = "@Regression and not @student"
-        //tags = "@wip"
+        tags = "@wip"
 
 
 )
