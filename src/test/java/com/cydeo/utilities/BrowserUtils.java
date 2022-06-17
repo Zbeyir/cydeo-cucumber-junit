@@ -95,6 +95,15 @@ public class BrowserUtils {
         wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
+    //17. gün gÜRHAN ile yaptik(WebTableStepDefinitions)--> ALLTA KI Icin--> /** sonra enter yap
+
+    /**
+     * This method will accept  A String value and verify actual URL CONTAINS THE VALUE
+     * @param expectedInTitle
+     */
+    public static void verifyURLContains(String expectedInTitle){
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInTitle));
+    }
 
 
 }

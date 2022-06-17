@@ -1,6 +1,6 @@
 Feature: Examples of Cucumber data table implementations
 
-  @wip
+  #@wip
   Scenario: List of fruits I like
     Then user shoul see fruits I like
       | kiwi        |
