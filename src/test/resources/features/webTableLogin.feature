@@ -1,5 +1,6 @@
 Feature: User should be able to login using correct credentials
 #----17. gün yaptik---
+  #Day17_WebTable_Task01
 
   #@wip
   Scenario: Positive login scenario
@@ -9,7 +10,7 @@ Feature: User should be able to login using correct credentials
     And user clicks to login button
     Then user should see url contains orders
 
-    @wip
+    #@wip
   Scenario: Positive login scenario
     Given user is on the login page of web table app
     When user enters username "Test" and password "Tester" and login

@@ -5,8 +5,11 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -36,7 +39,7 @@ public class BrowserUtils {
             - If condition matches, will break loop.
         Arg3: expectedInTitle to be compared against actualTitle
      */
-    public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle){
+    public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle) {
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
 
         for (String each : allWindowHandles) {
@@ -44,7 +47,7 @@ public class BrowserUtils {
 
             System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
 
-            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)) {
                 break;
             }
 
@@ -80,7 +83,7 @@ public class BrowserUtils {
 
 
     //This method accepts a String "expectedTitle" and Asserts if it is true
-    public static void verifyTitle(String expectedTitle){
+    public static void verifyTitle(String expectedTitle) {
 
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
 
@@ -89,20 +92,46 @@ public class BrowserUtils {
 
     //Creating a utility method for ExplicitWait, so we don't have to repeat the lines
 
-    public static void waitForInvisibilityOf(WebElement webElement){
+    public static void waitForInvisibilityOf(WebElement webElement) {
         Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
+
     //17. gün gÜRHAN ile yaptik(WebTableStepDefinitions)--> ALLTA KI Icin--> /** sonra enter yap
 
     /**
      * This method will accept  A String value and verify actual URL CONTAINS THE VALUE
+     *
      * @param expectedInTitle
      */
-    public static void verifyURLContains(String expectedInTitle){
+    public static void verifyURLContains(String expectedInTitle) {
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInTitle));
+    }
+
+    /**
+     * day17
+     *  #day_17-Task06....dropdown task da yaptik
+     *  bunu----> DataTable_StepDefinitions ----> kullandik
+     * This method will accept as a WebElement and
+     * return all of the options' text in a List of String
+     * @param dropdownElement
+     * @return
+     */
+    public static List<String> dropdownOptionsAsString(WebElement dropdownElement) {
+        Select select = new Select(dropdownElement);
+
+        //List of all ACTUAL month <options> as a web element --> 1-)burada web element halinde
+        List<WebElement> actualOptionsAsWebElement = select.getOptions();
+
+        //List of all ACTUAL month <options> as a String  --> 2-)burada String haline getirdik
+        List<String> actualOptionsAsString = new ArrayList<>();
+
+        for (WebElement each : actualOptionsAsWebElement) {
+            actualOptionsAsString.add(each.getText());
+        }
+        return actualOptionsAsString;
     }
 
 
