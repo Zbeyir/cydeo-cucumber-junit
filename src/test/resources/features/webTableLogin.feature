@@ -2,9 +2,13 @@ Feature: User should be able to login using correct credentials
 #----17. gün yaptik---
   #Day17_WebTable_Task01
 
+  Background: user is on the login page
+    Given user is on the login page of web table app
+    # allta ki Given 'lari sildik cünkü burada belirtik
+
+
   #@wip
   Scenario: Positive login scenario
-    Given user is on the login page of web table app
     When user enters username "Test"
     And user enters password "Tester"
     And user clicks to login button
@@ -12,10 +16,32 @@ Feature: User should be able to login using correct credentials
 
     #@wip
   Scenario: Positive login scenario
-    Given user is on the login page of web table app
     When user enters username "Test" and password "Tester" and login
     Then user should see url contains orders
 
     #1- implement this new step
     #2- create login method in WebTableLoginPage
     # - this login method should have multiple different overloaded
+
+
+  #TC01 #: Login scenario using maps/ alternative practice
+  @wip
+  Scenario: User should be able to see all 12 months in months dropdown
+    When user enters below credentials
+      | username | Test   |
+      | password | Tester |
+    Then user should see url contains orders
+
+
+
+
+
+
+
+
+
+
+
+
+
+

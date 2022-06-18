@@ -8,6 +8,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.Map;
+
+// #Day17_WebTable_Task01
+
 public class WebTableStepDefinitions {
 
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
@@ -54,6 +58,25 @@ public class WebTableStepDefinitions {
 
         BrowserUtils.sleep(3);
 
+    }
+
+    //TC01 #: Login scenario using maps/ alternative practice
+    @When("user enters below credentials")
+    public void user_enters_below_credentials(Map<String, String> credentials) {
+
+        System.out.println("credentials.get(\"username\") = " + credentials.get("username"));
+        System.out.println("credentials.get(\"password\") = " + credentials.get("password"));
+
+       // webTableLoginPage.inputUsername.sendKeys(credentials.get("username"));
+       // webTableLoginPage.inputPassword.sendKeys(credentials.get("password"));
+       // webTableLoginPage.loginButton.click();
+        //ANOTHER WAY--->
+
+        //we can call our login utility method and pass values from app
+        webTableLoginPage.login(credentials.get("username"), credentials.get("password") );
 
     }
+
+
+
 }
