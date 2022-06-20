@@ -117,24 +117,26 @@ public class Order_StepDefinitions {
         //yukaridakinin Utuliti sini yaptik day 18 de
         //this line loop through the list and decide which radio button to click
         BrowserUtils.clickRadioButton(orderPage.cardType, expectedCardType);
+        BrowserUtils.sleep(1);
     }
-
-
 
 
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
-
+        orderPage.cardNoInput.sendKeys(string);
+        BrowserUtils.sleep(1);
     }
 
     @When("user enters expirty date {string}")
     public void user_enters_expirty_date(String string) {
-
+        orderPage.cardExpInput.sendKeys(string);
+        BrowserUtils.sleep(1);
     }
 
     @When("user enters process order button")
     public void user_enters_process_order_button() {
-
+        orderPage.processOrderButton.click();
+        BrowserUtils.sleep(1);
     }
 
     @Then("user should see {string} in first row of the web table")
