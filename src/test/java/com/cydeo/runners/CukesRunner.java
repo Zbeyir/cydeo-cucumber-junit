@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = "html:target/cucumber-report.html",
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = false,
+        dryRun = true,
         // dryRun = true,
         //tags = "@Regression"
         // tags = " @librarian"
@@ -17,7 +17,8 @@ import org.junit.runner.RunWith;
         // tags = "@employee"
         // tags = "@employee and @admin"
         // tags = "@Regression and not @student"
-        tags = "@wip"
+        //tags = "@wip"
+        tags = " @dice  "
      //   tags = "@scenarioOutline"
 
 
