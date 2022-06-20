@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 //  #Day17_WebTable_Task2
 
 public class OrderPage {
@@ -33,6 +35,10 @@ public class OrderPage {
 
     @FindBy(name = "zip")
     public WebElement zipInput;
+
+    @FindBy(name = "card")
+    public List<WebElement> cardType;
+
 
 
 

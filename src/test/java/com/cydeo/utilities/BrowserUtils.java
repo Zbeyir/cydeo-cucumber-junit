@@ -112,10 +112,11 @@ public class BrowserUtils {
 
     /**
      * day17
-     *  #day_17-Task06....dropdown task da yaptik
-     *  bunu----> DataTable_StepDefinitions ----> kullandik
+     * #day_17-Task06....dropdown task da yaptik
+     * bunu----> DataTable_StepDefinitions ----> kullandik
      * This method will accept as a WebElement and
      * return all of the options' text in a List of String
+     *
      * @param dropdownElement
      * @return
      */
@@ -135,4 +136,26 @@ public class BrowserUtils {
     }
 
 
+    /**
+     *  DAY 18 WITH Gürhan.
+     *  Uygulamasi---> Order_StepDefinitions class 'da.
+     *  And user enters credit card type "MasterCard"......bu kisim dan esinlendik ve bunu kurduk
+     *  This method will accept a group radio buttons as a List of WebElement.
+     *  It will loop through the list, and click to the radio button with provided attributeValue
+     */
+    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue) {
+
+        for (WebElement each : radioButtons) {
+
+            if (each.getAttribute("value").equalsIgnoreCase(attributeValue)){
+                each.click();
+            }
+        }
+
+    }
+
+
 }
+
+
+

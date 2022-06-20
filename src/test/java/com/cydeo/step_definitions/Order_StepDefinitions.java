@@ -9,7 +9,11 @@ import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 //  #Day17_WebTable_Task2
 
@@ -41,12 +45,28 @@ public class Order_StepDefinitions {
         BrowserUtils.sleep(1);
     }
 
+    /*
+    //bu benim yolum
     @When("user enters quantity {int}")
     public void user_enters_quantity(Integer int1) {
         orderPage.quantityInput.clear();
         orderPage.quantityInput.sendKeys("int1");
         BrowserUtils.sleep(1);
     }
+
+     */
+    @When("user enters quantity {int}")
+    public void user_enters_quantity(int int1) {
+        //accepting int argument and sending it using sendKeys() method
+        //since sendKeys()  method only accepts String , WE NEED  TO either concat with""
+        //or send String.valueOf(int)
+        //orderPage.quantityInput.clear(); // first way
+        orderPage.quantityInput.sendKeys(Keys.BACK_SPACE); //clear() method 'un yerine-->second way
+        orderPage.quantityInput.sendKeys(int1 + ""); //1. way
+        // orderPage.quantityInput.sendKeys(String.valueOf(int1)); //2.way
+        BrowserUtils.sleep(1);
+    }
+
 
     @When("user enters costumer name {string}")
     public void user_enters_costumer_name(String string) {
@@ -79,9 +99,28 @@ public class Order_StepDefinitions {
     }
 
     @When("user enters credit card type {string}")
-    public void user_enters_credit_card_type(String string) {
+    public void user_enters_credit_card_type(String expectedCardType) {
 
+        /*
+        List<WebElement> cardTypes = orderPage.cardType;
+
+        for (WebElement each : cardTypes) {
+
+            if (each.getAttribute("value").equalsIgnoreCase(expectedCardType)){
+                each.click();
+            }
+        }
+        BrowserUtils.sleep(1);
+
+         */
+
+        //yukaridakinin Utuliti sini yaptik day 18 de
+        //this line loop through the list and decide which radio button to click
+        BrowserUtils.clickRadioButton(orderPage.cardType, expectedCardType);
     }
+
+
+
 
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
