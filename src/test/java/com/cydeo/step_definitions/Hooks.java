@@ -12,17 +12,17 @@ import org.openqa.selenium.TakesScreenshot;
 public class Hooks {
 
     //import from io.cucumber.java not from junit
-    @Before(order = 1)  // bu hepsinde calisacak , ama digerleri hangi @annotation varsa orada calisacak
+  //  @Before(order = 1)  // bu hepsinde calisacak , ama digerleri hangi @annotation varsa orada calisacak
     public void setupScenario(){
         System.out.println("====setting up browser using cucumber @Before");
     }
 
-    @Before(value = "@login",order = 2)
+   // @Before(value = "@login",order = 2)
     public void setupScenarioForLogins(){
         System.out.println("====this will only apply to scenarios with @login tag");
     }
 
-    @Before(value = "@db", order = 0)
+    //@Before(value = "@db", order = 0)
     public void setupForDatabaseScenario(){
         System.out.println("====this will only apply to scenarios with @db tag");
     }
@@ -47,13 +47,13 @@ public class Hooks {
 
     }
 
-    @BeforeStep
+    //@BeforeStep
     public void setupStep(){
         System.out.println("--------------> applying setup using @BeforeStep");
 
     }
 
-    @AfterStep
+   // @AfterStep
     public void afterStep(){
         System.out.println("-------------> applying tearDown using @AfterStep");
 

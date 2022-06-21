@@ -8,7 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "html:target/cucumber-report.html",
-                "rerun:target/rerun.txt"   //day 18 bugün bunu ekeledik FailedTestRunner class dan önce
+                "rerun:target/rerun.txt",   //day 18 bugün bunu ekeledik FailedTestRunner class dan önce
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+
         },
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
@@ -21,9 +23,10 @@ import org.junit.runner.RunWith;
         // tags = "@employee and @admin"
         // tags = "@Regression and not @student"
         // tags = "@wip"
-        //  tags = "@dice  "
+        //  tags = "@dice"
         //   tags = "@scenarioOutline"
-        tags = " @femaleScientists"
+        //tags = " @femaleScientists"
+        tags = "@smoke"
 
 
 )
