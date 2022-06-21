@@ -24,7 +24,10 @@ public class Driver {
     We make it static because we will use it in a static method.
      */
 
-    private static WebDriver driver;  // value is null by default
+   // private static WebDriver driver;  // value is null by default //day 18 degistirdik
+
+    //day 18 yukarudakinin yerine bu assagidakini yazdik
+    private  static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     /*
     Create a re-usable utility method which will return same driver instance
@@ -33,7 +36,7 @@ public class Driver {
 
     public static WebDriver getDriver(){
 
-        if (driver == null){
+        if (driverPool.get() == null){  //day 18--driver == null--> bu yaziyordi--parantez in cini de degistirdik
 
             /*
             We read browserType from configuration.properties.
@@ -63,30 +66,34 @@ public class Driver {
             switch (browserType){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                   driverPool.set(new ChromeDriver()); // yerine-->  driver = new ChromeDriver();
+                    driverPool.get().manage().window().maximize(); // sadece driver. yaziyordu onu yerine
+                    driverPool.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);// sadece driver. yaziyordu onu yerine
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                   driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;
             }
 
         }
-        return driver;
+        return driverPool.get();
     }
 
     // This method will make sure our driver value is always null after using quit() method
     public static void closeDriver(){
-        if (driver != null){
-            driver.quit();  // this line will terminate the existing session. value will not even be null
-            driver = null;
+        if (driverPool.get() != null){
+            driverPool.get().quit();  // this line will terminate the existing session. value will not even be null
+            driverPool.remove();
         }
     }
 
+/**
+ * yani anliyacagin kardesim buranin eski hali ile kiyaslama yapmak istersen day 18 den
+ * önceki günlere git bak kiyasla  :)))
+ */
 
 
 }
