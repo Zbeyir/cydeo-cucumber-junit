@@ -17,6 +17,8 @@ Feature: Examples of Cucumber data table implementations
 
 
   #day_17-Task06
+    # yani bu task 'i "data tables" ile cözdük
+
   #@wip
   Scenario:  User should be able to see all 12 months in months dropdown
     Given User is on the dropdowns page of practice tool

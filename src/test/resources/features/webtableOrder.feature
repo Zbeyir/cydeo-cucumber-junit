@@ -3,6 +3,7 @@ Feature: Web table user order feature
   #Day17_WebTable_Task2
 
 
+
   #@wip
   Scenario: User should be able to place order and order seen in web table
     Given user is already logged in and order page
@@ -22,8 +23,9 @@ Feature: Web table user order feature
 
 
      #Day18_WebTable_Task2
-  #Scenario Outline <==> Scenario Template ayni
-  #--> bunu ilk yazinca alti krimit´zi oluyor hata veriyor cünkü en altaki examples 'i istiyor
+  #Burada da ayni task 'i "Scenario Outline <==> Scenario Template" ile cözdük
+  #Scenario Outline <==> Scenario Template--> bunu ilk yazinca
+  # alti krimit´zi oluyor hata veriyor cünkü en altaki examples 'i istiyor
 
   #@wip
   Scenario Template: User should be able to place order and order seen in web table
