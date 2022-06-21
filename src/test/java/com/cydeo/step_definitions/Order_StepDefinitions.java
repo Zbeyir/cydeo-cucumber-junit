@@ -46,7 +46,7 @@ public class Order_StepDefinitions {
 
         Select select = new Select(orderPage.productDropdown);
         select.selectByVisibleText(string);  // hatirlarsan 3 yöntem vardi (value - index - visible text)
-        BrowserUtils.sleep(1);
+
     }
 
     /*
@@ -68,38 +68,38 @@ public class Order_StepDefinitions {
         orderPage.quantityInput.sendKeys(Keys.BACK_SPACE); //clear() method 'un yerine-->second way
         orderPage.quantityInput.sendKeys(int1 + ""); //1. way
         // orderPage.quantityInput.sendKeys(String.valueOf(int1)); //2.way
-        BrowserUtils.sleep(1);
+
     }
 
 
     @When("user enters costumer name {string}")
     public void user_enters_costumer_name(String string) {
         orderPage.nameInput.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters street {string}")
     public void user_enters_street(String string) {
         orderPage.street.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters city {string}")
     public void user_enters_city(String string) {
         orderPage.cityInput.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters state {string}")
     public void user_enters_state(String string) {
         orderPage.stateInput.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters zipcode {string}")
     public void user_enters_zipcode(String string) {
         orderPage.zipInput.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters credit card type {string}")
@@ -121,26 +121,26 @@ public class Order_StepDefinitions {
         //yukaridakinin Utuliti sini yaptik day 18 de
         //this line loop through the list and decide which radio button to click
         BrowserUtils.clickRadioButton(orderPage.cardType, expectedCardType);
-        BrowserUtils.sleep(1);
+
     }
 
 
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
         orderPage.cardNoInput.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters expirty date {string}")
     public void user_enters_expirty_date(String string) {
         orderPage.cardExpInput.sendKeys(string);
-        BrowserUtils.sleep(1);
+
     }
 
     @When("user enters process order button")
     public void user_enters_process_order_button() {
         orderPage.processOrderButton.click();
-        BrowserUtils.sleep(1);
+
     }
 
     @Then("user should see {string} in first row of the web table")

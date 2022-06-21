@@ -17,9 +17,10 @@ import org.junit.runner.RunWith;
         // tags = "@employee"
         // tags = "@employee and @admin"
         // tags = "@Regression and not @student"
-        tags = "@wip"
-      //  tags = "@dice  "
-     //   tags = "@scenarioOutline"
+        // tags = "@wip"
+        //  tags = "@dice  "
+        //   tags = "@scenarioOutline"
+        tags = " @femaleScientists"
 
 
 )
