@@ -19,6 +19,8 @@ yani önce fail olan testler icin bir yer actik, sonra bu sinifi actik ,
 sonra bu sinfin feature ' i ni sadece failed testlere yönlendirdik
 ve bu class sadece failed test leri run ediyor
 fotolari da var bak
+--bug(hata) yi düzeltince tekrar run et
+ama .txt ' de silinmiyor biz manuel olarakmave-lifecyel-clean yapiyoruz
  */
 
 public class FailedTestRunner {
