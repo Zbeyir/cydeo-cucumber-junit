@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.BasePage;
 import com.cydeo.pages.OrderPage;
+import com.cydeo.pages.ViewAllOrdersPage;
 import com.cydeo.pages.WebTableLoginPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
@@ -9,6 +10,7 @@ import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -23,6 +25,8 @@ public class Order_StepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
     BasePage basePage = new BasePage();
     OrderPage orderPage = new OrderPage();
+    ViewAllOrdersPage viewAllOrdersPage = new ViewAllOrdersPage();
+
 
     @Given("user is already logged in and order page")
     public void user_is_already_logged_in_and_order_page() {
@@ -141,7 +145,9 @@ public class Order_StepDefinitions {
 
     @Then("user should see {string} in first row of the web table")
     public void user_should_see_in_first_row_of_the_web_table(String string) {
+        String actualName = viewAllOrdersPage.newCustomerCell.getText();
 
+        Assert.assertEquals(string, actualName);
     }
 
 
