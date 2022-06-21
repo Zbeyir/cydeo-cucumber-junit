@@ -27,6 +27,7 @@ import org.junit.runner.RunWith;
         //   tags = "@scenarioOutline"
         //tags = " @femaleScientists"
         tags = "@smoke"
+       // tags = ""
 
 
 )
