@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {
+                //"pretty",
                 "html:target/cucumber-report.html",
                 "rerun:target/rerun.txt",   //day 18 bugün bunu ekeledik FailedTestRunner class dan önce
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
@@ -22,12 +23,14 @@ import org.junit.runner.RunWith;
         // tags = "@employee"
         // tags = "@employee and @admin"
         // tags = "@Regression and not @student"
-        // tags = "@wip"
+         tags = "@wip",
         //  tags = "@dice"
         //   tags = "@scenarioOutline"
         //tags = " @femaleScientists"
-        tags = "@smoke"
+       // tags = "@smoke"
        // tags = ""
+        publish = false
+
 
 
 )
