@@ -51,8 +51,8 @@ public class CloudTables {
         cloudTablePage.createButton.click();
     }
 
-    @Then("User should be able to find person at the search box {string}")
-    public void user_should_be_able_to_find_person_at_the_search_box(String string) {
+    @Then("User should be able to find person at the search box")
+    public void user_should_be_able_to_find_person_at_the_search_box() {
         cloudTablePage.searchBox.sendKeys(this.firstName+" "+this.lastname);
         Assert.assertTrue(cloudTablePage.getNewPerson(firstName, lastname).isDisplayed());
     }
