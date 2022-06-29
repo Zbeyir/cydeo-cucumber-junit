@@ -66,11 +66,11 @@ public class CloudTables {
 
     @Then("User deletes the person created")
     public void user_deletes_the_person_created() {
-        BrowserUtils.sleep(2);
+        //BrowserUtils.sleep(2);
         cloudTablePage.getNewPerson(firstName, lastName).click();
         cloudTablePage.deletePerson.click();
         cloudTablePage.confirmDeleteButton.click();
-        BrowserUtils.sleep(2);
+       // BrowserUtils.sleep(2);
     }
 
 

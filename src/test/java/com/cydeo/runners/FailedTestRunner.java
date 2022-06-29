@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 // day 18 sonra bu class actik
 // CukesRunner class da ki aciklama nin  yanindaki den sonra
 /*
+rerun.txt ' de hatali etst ti gösteriyor ve numrasini veriyor ama o numara komple o scenario ' ya ait
 yani önce fail olan testler icin bir yer actik, sonra bu sinifi actik ,
 sonra bu sinfin feature ' i ni sadece failed testlere yönlendirdik
 ve bu class sadece failed test leri run ediyor
