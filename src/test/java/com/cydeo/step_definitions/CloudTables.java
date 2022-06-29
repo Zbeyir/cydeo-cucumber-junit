@@ -29,6 +29,7 @@ public class CloudTables {
     public void user_enters_to_firstname_field(String firstName) {
         cloudTablePage.firstName.sendKeys(firstName);
         this.firstName = firstName;  // 2. adim bunu yukarida ki ile esitledik
+        BrowserUtils.sleep(1);
     }
 
     @When("User enters {string} to lastname field")

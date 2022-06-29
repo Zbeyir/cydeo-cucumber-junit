@@ -36,3 +36,28 @@ Scenario Outline in Cucumber BDD Framework
 I use Scenario Outline to perform Data Driven Testing
 
 Data Driven TEsting: Testing functionality of the application using multiple sets of data/input/parameters
+
+
+Jun 25th 2022
+How to run failed test cases again?
+1. Class Recordings:
+    - we use reun plugin to create rerun.txt file
+    - we use failedtestrunner class to run only those scenarios that are failed
+
+2. mvn commands --->  ?????bunu yapamadim?????
+mvn -Dsurefire.rerunFailingTestsCount=1 test
+our failed test scenarios will run one more time
+
+* Parallel Testing
+What do we need for parallel tests?
+- Driver Class needs to be changed to driverpool
+- you need to have mavensurefire plugin in your pom.xml, to be able to run Maven lifecycle commands
+- in Cucumber framework we run features in parallel way
+- add to your pom.xml: configure the plug-in
+ <configuration>
+                    <parallel>methods</parallel>
+
+
+
+#######  cmd+sift+f---> ile nerede meselea bu @wip isimde acik kapali var görebiliyoruz
+#####  silip ekelme cikarma yapabiliyoruz
