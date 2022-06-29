@@ -33,6 +33,12 @@ public class CloudTablePage {
     @FindBy(xpath = "//input[@type='search']")
     public WebElement searchBox;
 
+    @FindBy(xpath = "//span[.='Delete']")
+    public WebElement deletePerson;
+
+    @FindBy(xpath = "//button[@class='btn']")
+    public WebElement confirmDeleteButton;
+
 
     /**
      * bu kisim degisken oldugu icin böyle bir method kurduk
