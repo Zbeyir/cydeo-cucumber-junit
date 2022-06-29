@@ -39,6 +39,9 @@ public class CloudTablePage {
     @FindBy(xpath = "//button[@class='btn']")
     public WebElement confirmDeleteButton;
 
+    @FindBy(xpath = "//td[.='No matching records found']")
+    public WebElement errorMessage;
+
 
     /**
      * bu kisim degisken oldugu icin böyle bir method kurduk

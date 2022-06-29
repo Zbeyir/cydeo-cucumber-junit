@@ -13,7 +13,7 @@ public class CloudTables {
 
     CloudTablePage cloudTablePage = new CloudTablePage();
     String firstName;  // 1. adim bu iki first + last Name leri globol yaptik
-    String lastname;
+    String lastName;
 
     @Given("User is on cloudTables homepage")
     public void user_is_on_cloud_tables_homepage() {
@@ -34,7 +34,7 @@ public class CloudTables {
     @When("User enters {string} to lastname field")
     public void user_enters_to_lastname_field(String lastName) {
         cloudTablePage.lastName.sendKeys(lastName);
-        this.lastname = lastName; // 2. adim bunu yukarida ki ile esitledik
+        this.lastName = lastName; // 2. adim bunu yukarida ki ile esitledik
     }
 
     @When("User enters {string} to position field")
@@ -55,11 +55,11 @@ public class CloudTables {
     @Then("User should be able to find person at the search box {string}")
     public void user_should_be_able_to_find_person_at_the_search_box(String situation) {
         cloudTablePage.searchBox.clear();
-        cloudTablePage.searchBox.sendKeys(this.firstName + " " + this.lastname);
+        cloudTablePage.searchBox.sendKeys(this.firstName + " " + this.lastName);
         if (situation.equals("positive")) {
-            Assert.assertTrue(cloudTablePage.getNewPerson(firstName, lastname).isDisplayed());
+            Assert.assertTrue(cloudTablePage.getNewPerson(firstName, lastName).isDisplayed());
         } else if (situation.equals("negative")) {
-            Assert.assertFalse(cloudTablePage.getNewPerson(firstName, lastname).isDisplayed());
+            Assert.assertTrue(cloudTablePage.errorMessage.isDisplayed());
         }
 
     }
@@ -67,7 +67,7 @@ public class CloudTables {
     @Then("User deletes the person created")
     public void user_deletes_the_person_created() {
         BrowserUtils.sleep(2);
-        cloudTablePage.getNewPerson(firstName, lastname).click();
+        cloudTablePage.getNewPerson(firstName, lastName).click();
         cloudTablePage.deletePerson.click();
         cloudTablePage.confirmDeleteButton.click();
         BrowserUtils.sleep(2);
